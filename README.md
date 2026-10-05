@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Mon portfolio de développeur full-stack freelance, basé à Antananarivo (Madagascar, UTC+3).
 
-## Getting Started
+## Stack
 
-First, run the development server:
+- [Next.js 16](https://nextjs.org) (App Router) · TypeScript strict
+- [Tailwind CSS v4](https://tailwindcss.com) (configuration CSS-first)
+- [Motion](https://motion.dev) pour les animations
+- [next-intl](https://next-intl.dev) : français par défaut, anglais ensuite
+- Police Outfit via `next/font`
+- Déploiement sur [Vercel](https://vercel.com)
+
+En V1, le site est entièrement statique : pas de base de données ni de CMS. Ce choix est amené à évoluer (voir [docs/adr/](docs/adr/)).
+
+## Prérequis
+
+- Node.js 24 (voir `.nvmrc`)
+- npm
+
+## Démarrer
 
 ```bash
+nvm use
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Le site tourne sur http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Commande            | Rôle                                                  |
+| ------------------- | ----------------------------------------------------- |
+| `npm run dev`       | Serveur de développement                              |
+| `npm run build`     | Build de production                                   |
+| `npm run start`     | Sert le build de production en local                  |
+| `npm run lint`      | Vérifie le code avec ESLint                           |
+| `npm run typecheck` | Génère les types des routes et vérifie le TypeScript  |
 
-## Learn More
+## Organisation
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+  app/[locale]/       pages et layout, une version par langue
+  components/
+    layout/           Header, Footer
+    sections/         sections de la page
+    ui/               briques réutilisables
+  data/               données non traduites (projets, stack, liens)
+  i18n/               configuration next-intl
+messages/             textes FR et EN
+public/projects/      captures des projets (.webp)
+docs/                 architecture et décisions (ADR)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Le détail est dans [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Workflow
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `main` est protégée et toujours déployable.
+- Une branche par changement (`feat/…`, `fix/…`, `chore/…`, `docs/…`), une pull request, puis un squash merge.
+- Commits au format [Conventional Commits](https://www.conventionalcommits.org/fr/).
+- La CI (lint, typecheck, build) doit passer avant tout merge.
+- Chaque PR a sa preview Vercel
