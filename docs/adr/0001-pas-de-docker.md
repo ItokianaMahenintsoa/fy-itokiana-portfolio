@@ -13,19 +13,21 @@ Le principal problème que Docker résoudrait, « ça marche chez moi mais pas a
 
 On n'utilise pas Docker. La cohérence entre environnements est assurée par :
 
-- `.nvmrc` (Node 24) pour le local et la CI ;
+- `.nvmrc` (Node 26) pour le local et la CI ;
 - `engines.node` dans `package.json`, lu par Vercel ;
 - `package-lock.json` commité, installé avec `npm ci` en CI.
 
 ## Conséquences
 
 **Positives**
+
 - Moins de configuration à maintenir.
 - Hot reload rapide en local (pas de volume monté, qui ralentit sur Windows).
 - Local, CI et production tournent sur la même version de Node.
 
 **Négatives**
-- Il faut installer Node 24 sur chaque machine de dev (via nvm).
+
+- Il faut installer Node 26 sur chaque machine de dev (via nvm).
 - Pas d'image prête à l'emploi en cas d'hébergement hors Vercel.
 
 ## Alternatives écartées

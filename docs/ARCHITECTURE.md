@@ -15,7 +15,6 @@ Ce document décrit comment le portfolio est construit et les règles à respect
 - Aucun serveur ni aucune API à l'exécution : Vercel sert des fichiers statiques.
 - Tout besoin dynamique (formulaire, base de données…) doit faire l'objet d'une nouvelle ADR avant d'être ajouté.
 
-
 ## 3. Couches et dépendances
 
 ```
@@ -47,10 +46,10 @@ Conventions : un composant par fichier, export nommé, nom en PascalCase. Aucun 
 
 ## 5. Contenu : `data/` contre `messages/`
 
-| `data/` (ne se traduit pas)                 | `messages/` (se lit et se traduit)        |
-| ------------------------------------------- | ----------------------------------------- |
-| slugs, URLs, chemins d'images               | titres, descriptions, catégories         |
-| noms de technos, email, liens sociaux       | labels, boutons, textes de section        |
+| `data/` (ne se traduit pas)           | `messages/` (se lit et se traduit) |
+| ------------------------------------- | ---------------------------------- |
+| slugs, URLs, chemins d'images         | titres, descriptions, catégories   |
+| noms de technos, email, liens sociaux | labels, boutons, textes de section |
 
 Les deux sont reliés par une clé. Par exemple, le projet `tsiahy` déclaré dans `data/projects.ts` lit ses textes dans `messages/fr.json` sous `projects.items.tsiahy`. La forme exacte des types sera fixée à l'étape 6.
 
@@ -90,11 +89,11 @@ Les deux sont reliés par une clé. Par exemple, le projet `tsiahy` déclaré da
 
 ## 11. Qualité et environnements
 
-- Node.js 24, fixé par `.nvmrc` et `engines` (utilisé aussi par Vercel).
+- Node.js 26, fixé par `.nvmrc` et `engines` (utilisé aussi par Vercel).
 - La CI GitHub Actions lance lint, typecheck et build sur chaque PR et sur `main`.
 
-| Environnement | Où                       | Quand                     |
-| ------------- | ------------------------ | ------------------------- |
-| Local         | `localhost:3000`         | en développement          |
-| Preview       | URL Vercel de la PR      | à chaque push sur une PR  |
-| Production    | [À COMPLÉTER : domaine]  | à chaque merge sur `main` |
+| Environnement | Où                      | Quand                     |
+| ------------- | ----------------------- | ------------------------- |
+| Local         | `localhost:3000`        | en développement          |
+| Preview       | URL Vercel de la PR     | à chaque push sur une PR  |
+| Production    | [À COMPLÉTER : domaine] | à chaque merge sur `main` |

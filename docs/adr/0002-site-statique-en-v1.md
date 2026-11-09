@@ -18,11 +18,13 @@ En V1, le site est **entièrement statique** :
 ## Conséquences
 
 **Positives**
+
 - Performance maximale : du HTML pré-généré, servi depuis un CDN.
 - Aucune surface d'attaque serveur, aucun secret à gérer.
 - Coût d'hébergement minimal.
 
 **Négatives**
+
 - Chaque modification de contenu passe par un commit et un déploiement.
 - Pas de formulaire de contact : un `mailto` convertit un peu moins bien qu'un formulaire.
 
@@ -30,12 +32,12 @@ En V1, le site est **entièrement statique** :
 
 Cette décision n'est **pas définitive**. Grâce à la séparation entre le contenu et les composants (voir ADR 0003), on peut faire évoluer le site sans réécrire l'interface :
 
-| Besoin                                  | Piste probable                                  |
-| --------------------------------------- | ----------------------------------------------- |
-| Formulaire de contact                   | Route serveur Next.js + Resend, sans base de données |
-| Études de cas détaillées, blog          | Fichiers MDX dans le repo, ou CMS headless      |
-| Modifier le contenu sans toucher au code | CMS headless                                    |
-| Espace d'administration                 | Base de données + authentification              |
+| Besoin                                   | Piste probable                                       |
+| ---------------------------------------- | ---------------------------------------------------- |
+| Formulaire de contact                    | Route serveur Next.js + Resend, sans base de données |
+| Études de cas détaillées, blog           | Fichiers MDX dans le repo, ou CMS headless           |
+| Modifier le contenu sans toucher au code | CMS headless                                         |
+| Espace d'administration                  | Base de données + authentification                   |
 
 Chacune de ces évolutions fera l'objet de sa propre ADR avant d'être codée.
 

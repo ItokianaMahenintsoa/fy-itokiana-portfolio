@@ -13,7 +13,7 @@ En V1, le site est entièrement statique : pas de base de données ni de CMS. Ce
 
 ## Prérequis
 
-- Node.js 24 (voir `.nvmrc`)
+- Node.js 26 (voir `.nvmrc`)
 - npm
 
 ## Démarrer
@@ -28,13 +28,13 @@ Le site tourne sur http://localhost:3000.
 
 ## Scripts
 
-| Commande            | Rôle                                                  |
-| ------------------- | ----------------------------------------------------- |
-| `npm run dev`       | Serveur de développement                              |
-| `npm run build`     | Build de production                                   |
-| `npm run start`     | Sert le build de production en local                  |
-| `npm run lint`      | Vérifie le code avec ESLint                           |
-| `npm run typecheck` | Génère les types des routes et vérifie le TypeScript  |
+| Commande            | Rôle                                                 |
+| ------------------- | ---------------------------------------------------- |
+| `npm run dev`       | Serveur de développement                             |
+| `npm run build`     | Build de production                                  |
+| `npm run start`     | Sert le build de production en local                 |
+| `npm run lint`      | Vérifie le code avec ESLint                          |
+| `npm run typecheck` | Génère les types des routes et vérifie le TypeScript |
 
 ## Organisation
 

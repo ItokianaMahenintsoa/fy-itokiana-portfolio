@@ -26,11 +26,13 @@ Le site est bilingue (FR puis EN) et aucun texte ne doit être écrit en dur dan
 ## Conséquences
 
 **Positives**
+
 - Une URL ou une image ne se modifie qu'à un seul endroit, quelle que soit la langue.
 - Les fichiers de traduction ne contiennent que du texte : faciles à relire et à traduire.
 - Si on passe un jour à un CMS ou à une base de données (voir ADR 0002), seule la source de `data/` change. Les composants restent identiques.
 
 **Négatives**
+
 - Ajouter un projet demande de toucher deux endroits : `data/` et chaque fichier de `messages/`.
 - Une clé oubliée dans une langue ne sera détectée qu'à l'exécution, sauf si on type les messages (à étudier à l'étape 2 avec next-intl).
 
