@@ -1,4 +1,4 @@
-Mon portfolio de développeur full-stack freelance, basé à Antananarivo (Madagascar, UTC+3).
+# fy-itokiana-portfolio
 
 ## Stack
 
@@ -13,7 +13,7 @@ En V1, le site est entièrement statique : pas de base de données ni de CMS. Ce
 
 ## Prérequis
 
-- Node.js 26 (voir `.nvmrc`)
+- Node.js 24 (voir `.nvmrc`)
 - npm
 
 ## Démarrer
@@ -28,13 +28,15 @@ Le site tourne sur http://localhost:3000.
 
 ## Scripts
 
-| Commande            | Rôle                                                 |
-| ------------------- | ---------------------------------------------------- |
-| `npm run dev`       | Serveur de développement                             |
-| `npm run build`     | Build de production                                  |
-| `npm run start`     | Sert le build de production en local                 |
-| `npm run lint`      | Vérifie le code avec ESLint                          |
-| `npm run typecheck` | Génère les types des routes et vérifie le TypeScript |
+| Commande               | Rôle                                                 |
+| ---------------------- | ---------------------------------------------------- |
+| `npm run dev`          | Serveur de développement                             |
+| `npm run build`        | Build de production                                  |
+| `npm run start`        | Sert le build de production en local                 |
+| `npm run lint`         | Vérifie le code avec ESLint                          |
+| `npm run typecheck`    | Génère les types des routes et vérifie le TypeScript |
+| `npm run format`       | Formate le code avec Prettier                        |
+| `npm run format:check` | Vérifie le formatage sans rien modifier              |
 
 ## Organisation
 
