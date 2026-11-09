@@ -9,11 +9,14 @@ Ce document décrit comment le portfolio est construit et les règles à respect
 - **Performance** : objectif Lighthouse ≥ 95 sur les 4 scores.
 - **Pas de dépendance sans raison** : chaque ajout doit se justifier.
 
-## 2. Rendu : 100 % statique
+## 2. Rendu : statique en V1
 
-- Toutes les pages sont générées au build, pour chaque langue (`generateStaticParams`).
-- Aucun serveur ni aucune API à l'exécution : Vercel sert des fichiers statiques.
-- Tout besoin dynamique (formulaire, base de données…) doit faire l'objet d'une nouvelle ADR avant d'être ajouté.
+- En V1, toutes les pages sont générées au build, pour chaque langue (`generateStaticParams`).
+- Aucun serveur, aucune API, aucune base de données à l'exécution : Vercel sert des fichiers statiques.
+- Ce n'est pas un choix définitif. L'architecture en couches permet d'ajouter plus tard une base de données, un CMS ou un formulaire **sans tout réécrire** :
+  - seule la façon de récupérer le contenu changerait (`data/` serait remplacé par des appels à une source externe) ;
+  - les composants, eux, resteraient identiques.
+- Toute évolution de ce type fait l'objet d'une nouvelle ADR avant d'être codée.
 
 ## 3. Couches et dépendances
 
@@ -90,7 +93,7 @@ Les deux sont reliés par une clé. Par exemple, le projet `tsiahy` déclaré da
 ## 11. Qualité et environnements
 
 - Node.js 26, fixé par `.nvmrc` et `engines` (utilisé aussi par Vercel).
-- La CI GitHub Actions lance lint, typecheck et build sur chaque PR et sur `main`.
+- La CI GitHub Actions vérifie le formatage, puis lance lint, typecheck et build sur chaque PR et sur `main`.
 
 | Environnement | Où                      | Quand                     |
 | ------------- | ----------------------- | ------------------------- |
