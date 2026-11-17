@@ -1,3 +1,5 @@
+import { getTranslations } from "next-intl/server";
+
 const swatches = [
   { name: "bg", hex: "#0e0e10", className: "bg-bg" },
   { name: "surface", hex: "#161619", className: "bg-surface" },
@@ -12,12 +14,14 @@ const swatches = [
 
 const stack = ["Next.js", "React", "TypeScript", "Node.js", "Prisma"] as const;
 
-export default function Page() {
+export default async function Page() {
+  const t = await getTranslations("Preview");
+
   return (
     <main className="shell space-y-20 py-24">
       <section className="space-y-6">
         <p className="text-label tracking-widest text-faint uppercase">
-          Preview · Design tokens
+          {t("label")}
         </p>
         <h1 className="text-hero">
           Fy, développeur full-stack
