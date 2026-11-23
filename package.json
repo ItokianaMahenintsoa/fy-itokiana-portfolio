@@ -13,8 +13,8 @@
   },
   "dependencies": {
     "motion": "^14.14.0",
-    "next": "16.4.5",
-    "next-intl": "^4.15.1",
+    "next": "16.4.6",
+    "next-intl": "^4.15.3",
     "react": "19.3.1",
     "react-dom": "19.3.1"
   },
@@ -24,8 +24,8 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^10",
-    "eslint-config-next": "16.4.5",
-    "prettier": "^3.9.10",
+    "eslint-config-next": "16.4.6",
+    "prettier": "^3.10.1",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwindcss": "^4",
     "typescript": "^5"
