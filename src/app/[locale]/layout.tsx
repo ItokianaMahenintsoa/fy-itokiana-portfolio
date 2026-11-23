@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import ".././globals.css";
 import { routing } from "@/i18n/routing";
 import { NextIntlClientProvider } from "next-intl";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
+import { MotionProvider } from "@/components/providers/MotionProvider";
+import { SkipLink } from "@/components/layout/SkipLink";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -12,9 +13,14 @@ const outfit = Outfit({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Fy",
-};
+export async function generateMetadata() {
+  const t = await getTranslations("Metadata");
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -28,7 +34,12 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={outfit.variable}>
       <body className="antialiased">
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          <MotionProvider>
+            <SkipLink />
+            <main id="content">{children}</main>
+          </MotionProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

@@ -1,4 +1,11 @@
 {
+  "Metadata": {
+    "title": "Fy — Développeur full-stack à Antananarivo",
+    "description": "Développeur full-stack freelance basé à Antananarivo. Je conçois des sites et des applications web sur mesure."
+  },
+  "Layout": {
+    "skipToContent": "Aller au contenu"
+  },
   "Preview": {
     "label": "Aperçu · Design tokens"
   }

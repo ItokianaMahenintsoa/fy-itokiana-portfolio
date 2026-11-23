@@ -1,4 +1,11 @@
 {
+  "Metadata": {
+    "title": "Fy — Full-stack developer in Antananarivo",
+    "description": "Freelance full-stack developer based in Antananarivo. I build custom websites and web applications."
+  },
+  "Layout": {
+    "skipToContent": "Skip to content"
+  },
   "Preview": {
     "label": "Preview · Design tokens"
   }
