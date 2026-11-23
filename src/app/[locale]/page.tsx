@@ -18,7 +18,7 @@ export default async function Page() {
   const t = await getTranslations("Preview");
 
   return (
-    <main className="shell space-y-20 py-24">
+    <div className="shell space-y-20 py-24">
       <section className="space-y-6">
         <p className="text-label tracking-widest text-faint uppercase">
           {t("label")}
@@ -86,6 +86,6 @@ export default async function Page() {
           ))}
         </div>
       </section>
-    </main>
+    </div>
   );
 }
