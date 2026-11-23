@@ -60,10 +60,12 @@ Les deux sont reliés par une clé. Par exemple, le projet `tsiahy` déclaré da
 
 ## 6. Internationalisation
 
-- `next-intl`, routes `/fr` (par défaut) et `/en`.
+- `next-intl`, routes `/fr` (par défaut) et `/en`. La racine `/` redirige vers `/fr` (`src/proxy.ts`).
+- La langue est lue depuis l'URL avec `next/root-params` (Next.js 16.3 et plus), dans `src/i18n/request.ts`. On n'utilise pas `setRequestLocale`, déprécié.
+- `generateStaticParams` dans `src/app/[locale]/layout.tsx` génère une page statique par langue.
 - L'attribut `lang` de `<html>` suit la langue de la route.
-- Les metadata (titre, description, Open Graph) sont traduites.
-- Note : Next 16 a renommé `middleware.ts` en `proxy.ts`. L'intégration next-intl sera vérifiée dans sa documentation à jour à l'étape 2.
+- Les textes sont rangés par composant dans `messages/fr.json` et `messages/en.json`.
+- Les clés de traduction sont typées (`src/global.ts`), avec `fr.json` comme référence : une clé inconnue fait échouer le typecheck.
 
 ## 7. Styles
 
